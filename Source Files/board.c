@@ -15,10 +15,12 @@ point_type *newPoint(int a, int b)
 	return point;
 }
 
+
 void deletePoint(point_type *point)
 {
 	free(point);
 }
+
 
 point_type ***generateConsecutiveLines(point_type ***grid)
 {
@@ -126,4 +128,44 @@ point_type ***generateConsecutiveLines(point_type ***grid)
 	}
 return lines;
 }
+
+
+board_type *createBoard(int a, int b)
+{ 
+	int x;
+	int y;
+
+	board_type *board = (board_type *)malloc(sizeof(board_type));
+	board->cols = a;
+	board->rows = b;
+	board->moves_made = -1;
+	board->current_player = PLAYER_ONE;
+	board->heights = (int *)malloc(board->cols * sizeof(int));
+	board->grid = (point_type ***)malloc(board->cols * sizeof(point_type **));
+
+	for(x = 0; x < board->cols; x++)
+	{
+		board->grid[x] =(point_type **)malloc(board->rows * sizeof(point_type *));
+		board->heights[x] = 0;
+		for(y = 0; y< board->rows; y++)
+		{
+			board->grid[x][y] = newPoint(x,y); 
+		}
+	}
+
+	board->moves = (int *)malloc(board->cols * board->rows * sizeof(int));
+	board->consecutive_lines = generateConsecutiveLines(board->grid);
+	return board;
+}
+
+
+void deleteboard(board_type *board)
+{
+	free(board->consecutive_lines);
+	free(board->grid);
+	free(board->heights);
+	free(board->moves);
+	free(board);
+}
+
 
