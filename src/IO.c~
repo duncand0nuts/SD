@@ -3,16 +3,6 @@
 
 #include "../include/IO.h"
 
-/*
-*
-*  This source file contains the function which generates the array of 'char's
-*  which represents the game board.  
-*
-*/
-
-//  This function takes the board data structure and represents it in a format ready for
-//  printing to screen.
-
 char *charsBoard(board_type *board)
 {
 	int y;

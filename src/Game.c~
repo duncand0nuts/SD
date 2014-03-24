@@ -134,8 +134,6 @@ int winnerIs(board_type *board)
 
 }
 
-//  This function returns a value which indicates which player is currently 
-//  taking their turn.
 
 int getCurrentPlayer(board_type *board)
 {

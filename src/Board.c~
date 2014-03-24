@@ -211,7 +211,6 @@ board_type *createBoard(int a, int b)
 	return board;
 }
 
-//  This function frees the memory allocated for the board data structure.
 
 void deleteBoard(board_type *board)
 {

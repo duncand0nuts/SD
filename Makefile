@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -O3
+CFLAGS = -pg
 
 OBJS = Connect4.o CPU_player.o IO.o Game.o Board.o
 EXEC = Connect4
