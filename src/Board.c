@@ -147,6 +147,17 @@ point_type ***generateConsecutiveLines(point_type ***grid)
 	return lines;
 }
 
+//  This function frees the memory allocated for the board data structure.
+
+void deleteBoard(board_type *board)
+{
+	free(board->consecutive_lines);
+	free(board->grid);
+	free(board->heights);
+	free(board->moves);
+	free(board);
+}
+
 //  This function creates the board data structure.
 
 board_type *createBoard(int a, int b)
@@ -211,15 +222,7 @@ board_type *createBoard(int a, int b)
 	return board;
 }
 
-//  This function frees the memory allocated for the board data structure.
 
-void deleteBoard(board_type *board)
-{
-	free(board->consecutive_lines);
-	free(board->grid);
-	free(board->heights);
-	free(board->moves);
-	free(board);
-}
+
 
 

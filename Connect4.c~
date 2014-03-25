@@ -21,7 +21,7 @@ int main(int argc, char** argv)
 	int input;
 	int difficulty;
 
-	srand (time(NULL));  // Initialise random seed
+	srand (time(NULL));  //  Initialise random seed
 
 	board_type *board = createBoard(7,6);
 
@@ -35,16 +35,16 @@ int main(int argc, char** argv)
 
 	scanf("%d",&difficulty);
 
-	while(difficulty < 1 || difficulty > 3)  // Check that difficulty selection is in allowed bounds
+	while(difficulty < 1 || difficulty > 3)  //  Check that difficulty selection is in allowed bounds
 	{
 		printf("\nYou have entered an invalid value.  Please select again:");
 		scanf("%d",&difficulty);
 	}
 
-	switch(difficulty)  // Modify 'difficulty' variable based on selection
+	switch(difficulty)  //  Modify 'difficulty' variable based on selection
 	{
 		case 1 :
-			difficulty = 4;
+			difficulty = 100;
 			break;
 		case 2 :
 			difficulty = 2;
@@ -56,36 +56,36 @@ int main(int argc, char** argv)
 
 	printf("\nMake moves by entering values from 1 - 7 to select which column to drop a piece into.\n");
 
-	// This is the main event loop for the program, where turns are taken and moves are made:
+	//  This is the main event loop for the program, where turns are taken and moves are made:
 
 	while((winnerIs(board) == 0) && validMovesLeft(board))
  	{
-		if(getCurrentPlayer(board) == PLAYER_ONE)  // Player move section
+		if(getCurrentPlayer(board) == PLAYER_ONE)  //  Player move section
 		{
 			printf("\nIt's your turn!  Make a move...\n");
 			scanf("%d", &input);
 
-			while(input < 1 || input > 7)   // Test that move is into a valid column
+			while(input < 1 || input > 7)   //  Test that move is into a valid column
 			{
 				printf("\nYou have made an invalid move! Please make a move by selecting a column number between 1 and 7.\n");
 				scanf("%d",&input);
 			}
 		
-			while(board->heights[input-1] == 6)  // Test that column is not full
+			while(board->heights[input-1] == 6)  //  Test that column is not full
 			{
 				printf("\nThe column you have selected is full!  Please select another:\n");
 				scanf("%d",&input);
 			}
 
- 			makeMove(board,input-1); // Implements chosen move provided that it is valid
+ 			makeMove(board,input-1); //  Implements chosen move provided that it is valid
 		}
 
- 		else  // Computer move section
+ 		else  //  Computer move section
 		{
 			printf("\nIt's the computer player's turn!  Please wait...\n");
 
-			// Here the 'difficulty' variable is used to determine whether a random or reasoned move is made.
-			// If a more difficult setting is chosen, a reasoned move will be made more often.
+			//  Here the 'difficulty' variable is used to determine whether a random or reasoned move is made.
+			//  If a more difficult setting is chosen, a reasoned move will be made more often.
 
 			if(rand() % difficulty == 0)  
 			{
@@ -102,13 +102,13 @@ int main(int argc, char** argv)
 
 	}
 
-	// Print message according to how game transpired:
+	//  Print message according to how game transpired:
 
-	if(!validMovesLeft(board)) //No winner
+	if(!validMovesLeft(board)) //  No winner
 	{
 		printf("\nThere are no moves left.  It's a tie!\n");
 	}
-	else if (winnerIs(board) == 1)  // Player victory
+	else if (winnerIs(board) == 1)  //  Player victory
 	{
 		printf("\nYou won!  Congratulations!\n");
 	}
@@ -117,9 +117,10 @@ int main(int argc, char** argv)
 		printf("\nYou lost!  Better luck next time!\n");
 	}
 
-	// Free memory:
+	//  Free memory:
 
-	//deleteBoard(board);
+	deleteBoard(board);
+
 
  	return 0;
 

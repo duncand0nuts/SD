@@ -44,7 +44,7 @@ int main(int argc, char** argv)
 	switch(difficulty)  //  Modify 'difficulty' variable based on selection
 	{
 		case 1 :
-			difficulty = 4;
+			difficulty = 5;
 			break;
 		case 2 :
 			difficulty = 2;
@@ -116,10 +116,6 @@ int main(int argc, char** argv)
 	{
 		printf("\nYou lost!  Better luck next time!\n");
 	}
-
-	//  Free memory:
-
-	//deleteBoard(board);
 
  	return 0;
 

@@ -47,6 +47,5 @@ char *charsBoard(board_type *board)
 		*curr = '\n';
 		curr++;
 	}
-
 	return temp;
 }
