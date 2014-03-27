@@ -44,7 +44,7 @@ int main(int argc, char** argv)
 	switch(difficulty)  //  Modify 'difficulty' variable based on selection
 	{
 		case 1 :
-			difficulty = 5;
+			difficulty = 5;  
 			break;
 		case 2 :
 			difficulty = 2;
@@ -98,7 +98,7 @@ int main(int argc, char** argv)
 			}
 		}	
 	
-		printf("%s\n", charsBoard(board));
+		printf("\n%s\n", charsBoard(board));
 
 	}
 
